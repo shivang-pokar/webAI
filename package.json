@@ -1,0 +1,36 @@
+{
+  "name": "webi",
+  "version": "1.0.0",
+  "description": "It's AI plugin for your site that gave you AI feature in your site like voice command",
+  "scripts": {
+    "clean": "rimraf dist && rimraf coverage",
+    "build": "npm run compile && npm run copy:html && npm run bundle && npm run minify",
+    "compile": "tsc",
+    "copy:html": "cpx src/**.html dist",
+    "test": "karma start",
+    "bundle": "rollup -c",
+    "minify": "uglifyjs dist/webAI-plugin-bundle.js --output dist/webAI-plugin-bundle.min.js --source-map \"filename='dist/webAI-plugin-bundle.min.js.map',url='webAI-plugin-bundle.min.js.map',content='dist/webAI-plugin-bundle.js.map'\""
+  },
+  "author": "Shivang Pokar <shivang.patel503@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jasmine": "~2.8.7",
+    "@types/jquery": "~3.3.1",
+    "babel-core": "~6.26.3",
+    "babel-plugin-external-helpers": "~6.22.0",
+    "babel-preset-env": "~1.7.0",
+    "cpx": "~1.5.0",
+    "jasmine-core": "~3.1.0",
+    "karma": "~2.0.2",
+    "karma-jasmine": "~1.1.2",
+    "karma-phantomjs-launcher": "~1.0.4",
+    "karma-phantomjs-shim": "~1.5.0",
+    "karma-typescript": "~3.0.12",
+    "rimraf": "~2.6.2",
+    "rollup": "~0.58.2",
+    "rollup-plugin-babel": "~3.0.4",
+    "rollup-plugin-sourcemaps": "~0.4.2",
+    "typescript": "~2.8.3",
+    "uglify-js": "~3.3.24"
+  }
+}

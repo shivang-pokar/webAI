@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>jQuery Plugin Example</title>
+</head>
+
+<body>
+  <h1>jQuery Plugin Example</h1>
+  <p>The buttons are equipped with the example plugin to produce a greeting message on each click. Try it:</p>
+  <div>
+    <button type="button" id="btn-john">John</button>
+    <button type="button" id="btn-alex">Alex</button>
+  </div>
+  <div id="messages"></div>
+  <!-- Load jQuery -->
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- Load the example plugin bundle. -->
+  <script src="webai-plugin-bundle.min.js"></script>
+  <script>
+    // Set global options for the plugin.
+    /* $.fn.webAIPlugin.options = { outputSelector: '#messages' }; */
+    let x = new webAI({
+      baseCommand: "Hello",
+      command: [
+        {
+          actionCommand: ['open order'],
+          callback: function (event) {
+            console.log(event)
+          },
+          type: 'url',
+          pageSlug: ''
+        }, {
+          actionCommand: ['go to contact page'],
+          callback: (event) => {
+            console.log(event)
+          }
+        }
+      ],
+      siteUrl: 'http://work.smartcoderhub.com'
+    });
+  </script>
+</body>
+
+</html>
