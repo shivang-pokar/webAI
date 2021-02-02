@@ -1,8 +1,10 @@
 import { webAIPlugin } from './core/core';
-import { WebAIPluginServices } from './webAI-service';
 
 
 var webAI = (options: WebAIPluginOptions) => {
+  if (!options.timeOut) {
+    options.timeOut = 5;
+  }
   return new webAIPlugin(options);
 }
 

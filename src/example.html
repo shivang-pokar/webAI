@@ -3,24 +3,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>jQuery Plugin Example</title>
+  <title>AI Plugin Example</title>
 </head>
 
 <body>
-  <h1>jQuery Plugin Example</h1>
-  <div>
-    <button type="button" id="btn-john">John</button>
-    <button type="button" id="btn-alex">Alex</button>
-  </div>
+  <h1>AI Plugin Example</h1>
+  <h4>Show Alert</h4>
+  <h4>Search</h4>
+  <h4>Go to contact</h4>
   <div id="messages"></div>
-  <!-- Load jQuery -->
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <!-- Load the example plugin bundle. -->
   <script src="webai-plugin-bundle.min.js"></script>
   <script>
-    // Set global options for the plugin.
-    /* $.fn.webAIPlugin.options = { outputSelector: '#messages' }; */
     let x = new webAI({
+      timeOut: 6,
       baseCommand: "Hello",
       command: [
         {
@@ -30,10 +25,28 @@
           },
           type: 'url',
           pageSlug: ''
-        }, {
-          actionCommand: ['go to contact page'],
-          callback: (event) => {
+        },
+        {
+          actionCommand: ['Go to contact'],
+          callback: function (event) {
             console.log(event)
+          },
+          type: 'url',
+          pageSlug: 'contact.html'
+        },
+        {
+          actionCommand: ['Show Alert'],
+          type: 'action',
+          callback: (event) => {
+            alert(event.actionCommand)
+          }
+        },
+        {
+          actionCommand: ['search'],
+          type: 'action',
+          callback: (event) => {
+            //alert(event.actionCommand)
+            document.getElementById('messages').innerHTML = event.actionCommand.replace('search', '').trim();
           }
         }
       ],
