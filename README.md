@@ -3,7 +3,7 @@
 Hello geeks out there we are introducing webAI beta 1.0 using this you set voice command in you site 
 
 <blockquote>
-<p><strong>PLEASE NOTE:</strong> for not this not working on mobile</p>
+<p><strong>PLEASE NOTE:</strong> For It's only work with https</p>
 </blockquote>
 
 
@@ -54,6 +54,10 @@ new webAI({
 | `baseCommand` | To active your voice command |
 | `command` | using command you can all comannd you want |
 | `siteUrl` | Set your site path so that will yous to redirect |
+
+<blockquote>
+<p><strong>PLEASE NOTE:</strong> We are not providing mobile browser support</p>
+</blockquote>
 
 
 ## If you Like
